@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+body{
+    font-family: "Lato", sans-serif;
+    background:rgba(211, 211, 211, 0.3)
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    font-size: 28px;
+    background: rgba(211, 211, 211, 0.7);
+}
+
+.new-book-div {
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+}
+
+#new-book-button {
+    font-size: 24px;
+    padding: 10px 14px;
+    background-color: #33cc33;
+    border-radius: 5px;
+}
+
+.book-card-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book-card {
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #99ebff;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.read {
+    font-size: 20px;
+    padding: 2px 12px;
+    border-radius: 5px;
+    background-color: #33cc33;
+    margin: 0 5px;
+}
+
+.remove {
+    font-size: 20px;
+    padding: 2px 12px;
+    border-radius: 5px;
+    background-color: #ff4d4d;
+    margin: 0 5px;
+}
+
+.modal-container {
+    display: flex;
+    justify-content: center;
+}
+
+.modal {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    width: 350px;
+    height: 250px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #cc99ff;
+    z-index: 1;
+    font-size: 18px;
+}
+
+.modal-title {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.modal-author {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.modal-pages {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.modal-read {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+#add-book-button {
+    width: 120px;
+    align-self: center;
+    margin: 10px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: #33cc33;
+    font-size: 18px;
+}
+
+input#read {
+    transform: scale(1.5);
+}
