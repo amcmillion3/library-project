@@ -16,7 +16,8 @@
             <button id="new-book-button" type="submit">New Book</button>
         </div>
         <div class="modal-container">
-            <div class="modal">
+            <form id="modal">
+                <span class="close-button">&times;</span>
                 <span class="modal-title">
                     <label for="title">Title</label>
                     <input type="text" id="title" name="title" size="30" required>
@@ -31,17 +32,16 @@
                 </span>
                 <span class="modal-read">
                     <label for="read">Have you read the book?</label>
-                    <input type="checkbox" id="read" name="read-yes"><span>Yes</span>
-                    <input type="checkbox" id="read" name="read-no"><span>No</span>
+                    <input type="checkbox" id="read" name="read" value="yes">
                 </span>
                 <button id="add-book-button" type="submit">Add Book</button>
-            </div>
+            </form>
         </div>
         <div class="book-card-container">
             <div class="book-card">
                 <p class="card-info"><strong>Title</strong>: The Hobbit</p>
                 <p class="card-info"><strong>Author</strong>: J.R.R. Tolkien</p>
-                <p class="card-info"><strong>Pages</strong>: 257 Pages</p>
+                <p class="card-info"><strong>Pages</strong>: 300 Pages</p>
                 <button class="read" type="submit">Read</button>
                 <button class="remove" type="submit">Remove</button>
             </div>

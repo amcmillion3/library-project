@@ -60,18 +60,29 @@ header{
     justify-content: center;
 }
 
-.modal {
+#modal {
     display: none;
     flex-direction: column;
     justify-content: space-between;
     position: fixed;
     width: 350px;
-    height: 250px;
+    height: 300px;
     border: 2px solid black;
     border-radius: 5px;
     background-color: #cc99ff;
     z-index: 1;
     font-size: 18px;
+}
+
+.close-button {
+    align-self: flex-end;
+    font-size: 32px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.close-button:hover {
+  cursor: pointer;
 }
 
 .modal-title {
