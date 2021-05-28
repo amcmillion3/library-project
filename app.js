@@ -1,4 +1,3 @@
-
 // Buttons and their event listeners
 const newBookButton = document.getElementById("new-book-button");
 const closeButton = document.querySelector(".close-button");
@@ -13,7 +12,7 @@ closeButton.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
-addBookButton.addEventListener("click", addBookToLibrary());
+addBookButton.addEventListener("click", addBookToLibrary);
 
 
 // Book Constructor
