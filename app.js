@@ -16,14 +16,6 @@ addBookButton.addEventListener("click", addBookToLibrary);
 
 
 // Book Constructor
-class Book {
-  constructor(title, author, pages, read) {
-    this.title = modal.title.value;
-    this.author = modal.author.value;
-    this.pages = modal.pages.value + "pages";
-    this.read = modal.read.checked;
-  };
-};
 
 let myLibrary = [];
 
