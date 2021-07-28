@@ -1,4 +1,3 @@
-// Buttons and their event listeners
 const newBookButton = document.getElementById("new-book-button");
 const closeButton = document.querySelector(".close-button");
 const addBookButton = document.getElementById("add-book-button");
@@ -14,15 +13,30 @@ closeButton.addEventListener("click", () => {
 
 addBookButton.addEventListener("click", addBookToLibrary);
 
-
-// Book Constructor
+function Book(title, author, pages, read) {
+  this.title = title,
+  this.author = author,
+  this.pages = pages,
+  this.read = read
+}
 
 let myLibrary = [];
 
 function addBookToLibrary() {
+  e.preventDefault();
   modal.style.display = "none";
-  let newBook = new Book(title, author, pages, read);
+  getInputValues();
+  console.log(getInputValues());
+  let newBook = new Book(titleInputValue, authorInputValue, pagesInputValue, readInputValue);
   myLibrary.push(newBook);
+};
+
+function getInputValues() {
+  let titleInputValue = document.getElementById("title").value;
+  let authorInputValue = document.getElementById("author").value;
+  let pagesInputValue = document.getElementById("pages").value;
+  let readInputValue = document.getElementById("read").value;
+  return titleInputValue, authorInputValue, pagesInputValue, readInputValue;
 };
 
 
