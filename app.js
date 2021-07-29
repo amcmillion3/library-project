@@ -3,6 +3,8 @@ const closeButton = document.querySelector(".close-button");
 const addBookButton = document.getElementById("add-book-button");
 const modal = document.getElementById("modal");
 const bookCardContainer = document.querySelector(".book-card-container");
+const readButton = document.querySelector(".read");
+const removeButton = document.querySelector(".remove");
 
 newBookButton.addEventListener("click", () => {
   modal.style.display = "flex";
@@ -35,6 +37,8 @@ function addBookToLibrary(e) {
   let newBook = new Book(inputValues.title, inputValues.author, inputValues.pages, inputValues.read);
   myLibrary.push(newBook);
   displayLibrary(myLibrary);
+  myLibrary = [];
+  modal.reset();
 };
 
 
@@ -73,3 +77,11 @@ function displayLibrary (myLibrary) {
     bookCardContainer.appendChild(bookCard);
   };
 };
+
+readButton.addEventListener("click", () => {
+  readButton.style.backgroundColor = "#ff4d4d"
+});
+
+removeButton.addEventListener("click", (e) => {
+  
+})
