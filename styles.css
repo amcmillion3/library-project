@@ -48,6 +48,14 @@ header{
     margin: 0 5px;
 }
 
+.not-read {
+    font-size: 20px;
+    padding: 2px 12px;
+    border-radius: 5px;
+    background-color: #d3d3d3;
+    margin: 0 5px;
+}
+
 .remove {
     font-size: 20px;
     padding: 2px 12px;

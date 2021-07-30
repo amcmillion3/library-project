@@ -32,7 +32,7 @@ function addBookToLibrary(e) {
     title: document.getElementById("title").value,
     author: document.getElementById("author").value,
     pages: document.getElementById("pages").value,
-    read: document.getElementById("read").value
+    read: document.getElementById("read").checked
   };
   let newBook = Object.create(book);
   newBook.title = inputValues.title;
@@ -67,10 +67,21 @@ function displayLibrary (myLibrary) {
     pagesDiv.innerHTML = `<strong>Pages</strong>: ${myLibrary[i].pages}`;
     bookCard.appendChild(pagesDiv);
 
+    let readCheck = myLibrary[i].read
     let readDiv = document.createElement("button");
-    readDiv.classList.add("read");
+    function check(readCheck) {
+      if(readCheck) {
+        readDiv.classList.add("read");
+        readDiv.innerHTML = "Read";
+      }
+      else {
+        readDiv.classList.add("not-read");
+        readDiv.innerHTML = "Not Read";
+      }
+    }
+    check(readCheck);
+    readUpdate(readDiv);
     readDiv.setAttribute("type", "submit");
-    readDiv.innerHTML = "Read";
     bookCard.appendChild(readDiv);
 
     let removeDiv = document.createElement("button");
@@ -78,21 +89,35 @@ function displayLibrary (myLibrary) {
     removeDiv.setAttribute("type", "submit");
     removeDiv.innerHTML = "Remove";
     bookCard.appendChild(removeDiv);
+    remove(removeDiv);
 
     bookCardContainer.appendChild(bookCard);
   };
 };
 
-bookCardContainer.addEventListener("click", (e) => {
-  if(e.target.classList.contains("remove")) {
-    e.target.parentNode.remove();
-  }
-})
+// Remove button functionality
+function remove(removeDiv) {
+  removeDiv.addEventListener("click", (e) => {
+    for(let i =0; i < myLibrary.length; i++) {
+      if(e.target == myLibrary[i]) {
+        myLibrary.splice(i, 1);
+      }
+    }
+  })
+}
 
-bookCardContainer.addEventListener("click", (e) => {
-  if(e.target.classList.contains("read")) {
-    e.target.style.backgroundColor = "#ff4d4d";
-    e.target.innerHTML = "Not Read";
-  }
-})
-
+//Read button functionality
+function readUpdate(readDiv) {
+  readDiv.addEventListener("click", () => {
+    if(readDiv.classList.contains("read")) {
+      readDiv.classList.remove("read");
+      readDiv.classList.add("not-read");
+      readDiv.innerHTML = "Not Read";
+    }
+    else {
+      readDiv.classList.remove("not-read");
+      readDiv.classList.add("read");
+      readDiv.innerHTML = "Read";
+    }
+  })
+}
