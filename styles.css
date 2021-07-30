@@ -56,12 +56,12 @@ header{
     margin: 0 5px;
 }
 
-.modal-container {
+.form-container {
     display: flex;
     justify-content: center;
 }
 
-#modal {
+#form {
     display: none;
     flex-direction: column;
     justify-content: space-between;
@@ -86,25 +86,25 @@ header{
   cursor: pointer;
 }
 
-.modal-title {
+.form-title {
     display: flex;
     justify-content: space-between;
     margin: 10px;
 }
 
-.modal-author {
+.form-author {
     display: flex;
     justify-content: space-between;
     margin: 10px;
 }
 
-.modal-pages {
+.form-pages {
     display: flex;
     justify-content: space-between;
     margin: 10px;
 }
 
-.modal-read {
+.form-read {
     display: flex;
     justify-content: space-between;
     margin: 10px;

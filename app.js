@@ -1,45 +1,48 @@
 const newBookButton = document.getElementById("new-book-button");
 const closeButton = document.querySelector(".close-button");
 const addBookButton = document.getElementById("add-book-button");
-const modal = document.getElementById("modal");
+const form = document.getElementById("form");
 const bookCardContainer = document.querySelector(".book-card-container");
 const readButton = document.querySelector(".read");
 const removeButton = document.querySelector(".remove");
 
 newBookButton.addEventListener("click", () => {
-  modal.style.display = "flex";
+  form.style.display = "flex";
 });
 
 closeButton.addEventListener("click", () => {
-  modal.style.display = "none";
+  form.style.display = "none";
 });
 
 addBookButton.addEventListener("click", addBookToLibrary);
 
-function Book(title, author, pages, read) {
-  this.title = title,
-  this.author = author,
-  this.pages = pages,
-  this.read = read
+const book = {
+  title: this.title,
+  author: this.author,
+  pages: this.pages,
+  read: this.read
 }
 
 let myLibrary = [];
 
 function addBookToLibrary(e) {
   e.preventDefault();
-  modal.style.display = "none";
+  form.style.display = "none";
   inputValues = {
     title: document.getElementById("title").value,
     author: document.getElementById("author").value,
     pages: document.getElementById("pages").value,
     read: document.getElementById("read").value
   };
-  let newBook = new Book(inputValues.title, inputValues.author, inputValues.pages, inputValues.read);
+  let newBook = Object.create(book);
+  newBook.title = inputValues.title;
+  newBook.author = inputValues.author;
+  newBook.pages = inputValues.pages;
+  newBook.read = inputValues.read;
   myLibrary.push(newBook);
   displayLibrary(myLibrary);
-  modal.reset();
+  form.reset();
 };
-
 
 function displayLibrary (myLibrary) {
   while (bookCardContainer.firstChild) {
