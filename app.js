@@ -80,11 +80,16 @@ function displayLibrary (myLibrary) {
   };
 };
 
-readButton.addEventListener("click", () => {
-  readButton.style.backgroundColor = "#ff4d4d"
-  readButton.innerHTML = "Not Read";
-});
-
-removeButton.addEventListener("click", (e) => {
-  e.target.parentNode.remove();
+bookCardContainer.addEventListener("click", (e) => {
+  if(e.target.classList.contains("remove")) {
+    e.target.parentNode.remove();
+  }
 })
+
+bookCardContainer.addEventListener("click", (e) => {
+  if(e.target.classList.contains("read")) {
+    e.target.style.backgroundColor = "#ff4d4d";
+    e.target.innerHTML = "Not Read";
+  }
+})
+
