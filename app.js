@@ -37,12 +37,14 @@ function addBookToLibrary(e) {
   let newBook = new Book(inputValues.title, inputValues.author, inputValues.pages, inputValues.read);
   myLibrary.push(newBook);
   displayLibrary(myLibrary);
-  myLibrary = [];
   modal.reset();
 };
 
 
 function displayLibrary (myLibrary) {
+  while (bookCardContainer.firstChild) {
+    bookCardContainer.removeChild(bookCardContainer.firstChild);
+  }
   for(let i = 0; i < myLibrary.length; i++) {
     let bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
@@ -80,8 +82,9 @@ function displayLibrary (myLibrary) {
 
 readButton.addEventListener("click", () => {
   readButton.style.backgroundColor = "#ff4d4d"
+  readButton.innerHTML = "Not Read";
 });
 
 removeButton.addEventListener("click", (e) => {
-  
+  e.target.parentNode.remove();
 })
