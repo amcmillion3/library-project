@@ -51,6 +51,7 @@ function displayLibrary (myLibrary) {
   for(let i = 0; i < myLibrary.length; i++) {
     let bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
+    bookCard.dataset.id = i;
     
     let titleDiv = document.createElement("p");
     titleDiv.classList.add("card-info");
@@ -89,20 +90,18 @@ function displayLibrary (myLibrary) {
     removeDiv.setAttribute("type", "submit");
     removeDiv.innerHTML = "Remove";
     bookCard.appendChild(removeDiv);
-    remove(removeDiv);
+
+    remove(bookCard, removeDiv);
 
     bookCardContainer.appendChild(bookCard);
   };
 };
 
 // Remove button functionality
-function remove(removeDiv) {
+function remove(bookCard, removeDiv) {
   removeDiv.addEventListener("click", (e) => {
-    for(let i =0; i < myLibrary.length; i++) {
-      if(e.target == myLibrary[i]) {
-        myLibrary.splice(i, 1);
-      }
-    }
+      myLibrary.splice(bookCard.dataset.id, 1);
+      displayLibrary(myLibrary);
   })
 }
 
