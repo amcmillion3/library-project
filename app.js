@@ -41,6 +41,7 @@ function addBookToLibrary(e) {
   newBook.read = inputValues.read;
   myLibrary.push(newBook);
   displayLibrary(myLibrary);
+  setStorage();
   form.reset();
 };
 
@@ -102,7 +103,9 @@ function remove(bookCard, removeDiv) {
   removeDiv.addEventListener("click", (e) => {
       myLibrary.splice(bookCard.dataset.id, 1);
       displayLibrary(myLibrary);
+      return myLibrary;
   })
+  setStorage();
 }
 
 //Read button functionality
@@ -112,11 +115,31 @@ function readUpdate(readDiv) {
       readDiv.classList.remove("read");
       readDiv.classList.add("not-read");
       readDiv.innerHTML = "Not Read";
+      return myLibrary;
     }
     else {
       readDiv.classList.remove("not-read");
       readDiv.classList.add("read");
       readDiv.innerHTML = "Read";
+      return myLibrary;
     }
   })
+  setStorage();
 }
+
+function setStorage() {
+  localStorage.setItem(`myLibrary`, JSON.stringify(myLibrary));
+}
+
+function restoreLibrary() {
+  if(!localStorage.myLibrary) {
+      displayLibrary(myLibrary);
+  }else {
+      let objects = localStorage.getItem('myLibrary') 
+      objects = JSON.parse(objects);
+      myLibrary = objects;
+      displayLibrary(myLibrary);
+  }
+}
+
+restoreLibrary();
