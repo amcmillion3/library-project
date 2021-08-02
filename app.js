@@ -132,7 +132,7 @@ function setStorage() {
 }
 
 function restoreLibrary() {
-  if(!localStorage.myLibrary) {
+  if(localStorage.myLibrary === false) {
       displayLibrary(myLibrary);
   }else {
       let objects = localStorage.getItem('myLibrary') 
