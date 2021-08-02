@@ -115,16 +115,13 @@ function readUpdate(readDiv) {
       readDiv.classList.remove("read");
       readDiv.classList.add("not-read");
       readDiv.innerHTML = "Not Read";
-      return myLibrary;
     }
     else {
       readDiv.classList.remove("not-read");
       readDiv.classList.add("read");
       readDiv.innerHTML = "Read";
-      return myLibrary;
     }
   })
-  setStorage();
 }
 
 function setStorage() {
