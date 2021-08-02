@@ -82,7 +82,7 @@ function displayLibrary (myLibrary) {
       }
     }
     check(readCheck);
-    readUpdate(readDiv);
+    readUpdate(readDiv, bookCard);
     readDiv.setAttribute("type", "submit");
     bookCard.appendChild(readDiv);
 
@@ -109,17 +109,23 @@ function remove(bookCard, removeDiv) {
 }
 
 //Read button functionality
-function readUpdate(readDiv) {
+function readUpdate(readDiv, bookCard) {
   readDiv.addEventListener("click", () => {
     if(readDiv.classList.contains("read")) {
       readDiv.classList.remove("read");
       readDiv.classList.add("not-read");
       readDiv.innerHTML = "Not Read";
+      myLibrary[bookCard.dataset.id].read = false;
+      setStorage();
+      return myLibrary;
     }
     else {
       readDiv.classList.remove("not-read");
       readDiv.classList.add("read");
       readDiv.innerHTML = "Read";
+      myLibrary[bookCard.dataset.id].read = true;
+      setStorage();
+      return myLibrary;
     }
   })
 }
@@ -135,7 +141,7 @@ function restoreLibrary() {
       let objects = localStorage.getItem('myLibrary') 
       objects = JSON.parse(objects);
       myLibrary = objects;
-      displayLibrary(myLibrary);
+      displayLibrary(objects);
   }
 }
 
