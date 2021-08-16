@@ -16,11 +16,13 @@ closeButton.addEventListener("click", () => {
 
 addBookButton.addEventListener("click", addBookToLibrary);
 
-const book = {
-  title: this.title,
-  author: this.author,
-  pages: this.pages,
-  read: this.read
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title,
+    this.author = author,
+    this.pages = pages,
+    this.read = read
+  }
 }
 
 let myLibrary = [];
@@ -34,11 +36,7 @@ function addBookToLibrary(e) {
     pages: document.getElementById("pages").value,
     read: document.getElementById("read").checked
   };
-  let newBook = Object.create(book);
-  newBook.title = inputValues.title;
-  newBook.author = inputValues.author;
-  newBook.pages = inputValues.pages;
-  newBook.read = inputValues.read;
+  let newBook = new Book(inputValues.title, inputValues.author, inputValues.pages, inputValues.read);
   myLibrary.push(newBook);
   displayLibrary(myLibrary);
   setStorage();
